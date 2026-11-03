@@ -1,5 +1,5 @@
 // Network first so a new build arrives as soon as you're online; the last good copy serves you offline.
-const CACHE = 'descenso-54fc6ccfa0';
+const CACHE = 'descenso-0f82b9fbec';
 const FILES = ['./','./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
